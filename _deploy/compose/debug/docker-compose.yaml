@@ -1,0 +1,10 @@
+services:
+  web:
+    image: "${RECIPES_IMAGE_NAME}"
+
+    ports:
+      - "8001:8000"
+      - "5678:5678"
+    volumes:
+      - ../../../app/:/app/
+    command: python -m debugpy --listen 0.0.0.0:5678 manage.py runserver 0.0.0.0:8000
